@@ -12,7 +12,7 @@ export default function NewsletterBanner() {
   };
 
   return (
-    <section className="bg-[#CC0000]">
+    <section className="bg-[#111111] border-t border-white/10">
       <div className="max-w-7xl mx-auto px-6 lg:px-10 py-10 flex flex-col lg:flex-row items-center justify-between gap-6">
 
         {/* Text links */}

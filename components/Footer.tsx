@@ -8,21 +8,18 @@ export default function Footer() {
       {/* Gelber Akzentbalken oben */}
       <div className="h-1 bg-[#F5C800]" />
 
-      {/* Hauptbereich – 4 Spalten */}
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12">
+      {/* Hauptbereich – 4 Spalten, alles zentriert */}
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 py-16 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-12 text-center">
 
         {/* Spalte 1: Logo + Adresse */}
-        <div className="flex flex-col gap-5">
-          {/* Logo auf weissem Hintergrund */}
-          <div className="bg-white inline-flex p-3 w-fit">
-            <Image
-              src="/afra-logo.png"
-              alt="AFRA Gastroservice"
-              width={160}
-              height={64}
-              className="h-14 w-auto object-contain"
-            />
-          </div>
+        <div className="flex flex-col items-center gap-5">
+          <Image
+            src="/afra-logo-white.png"
+            alt="AFRA Gastroservice"
+            width={160}
+            height={64}
+            className="h-14 w-auto object-contain"
+          />
           <div className="font-[family-name:var(--font-inter)] text-white/55 text-sm leading-7">
             <p className="text-white font-semibold mb-1">AFRA Gastroservice</p>
             <p>Laubenhof 23</p>
@@ -31,11 +28,11 @@ export default function Footer() {
         </div>
 
         {/* Spalte 2: Kontakt */}
-        <div>
-          <h4 className="font-[family-name:var(--font-oswald)] font-semibold text-base tracking-widest uppercase text-[#F5C800] mb-6 pb-3 border-b border-white/10">
+        <div className="flex flex-col items-center">
+          <h4 className="font-[family-name:var(--font-oswald)] font-semibold text-base tracking-widest uppercase text-[#F5C800] mb-6 pb-3 border-b border-white/10 w-full text-center">
             Kontakt
           </h4>
-          <ul className="flex flex-col gap-4">
+          <ul className="flex flex-col items-center gap-4">
             <li>
               <a
                 href="tel:+4920131957501"
@@ -81,22 +78,22 @@ export default function Footer() {
         </div>
 
         {/* Spalte 3: Sortiment */}
-        <div>
-          <h4 className="font-[family-name:var(--font-oswald)] font-semibold text-base tracking-widest uppercase text-[#F5C800] mb-6 pb-3 border-b border-white/10">
+        <div className="flex flex-col items-center">
+          <h4 className="font-[family-name:var(--font-oswald)] font-semibold text-base tracking-widest uppercase text-[#F5C800] mb-6 pb-3 border-b border-white/10 w-full text-center">
             Sortiment
           </h4>
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col items-center gap-3">
             {[
-              { label: "Angebote",        href: "/angebote" },
-              { label: "Frischwaren",     href: "/sortiment/frischwaren" },
-              { label: "Tiefkühlwaren",   href: "/sortiment/tiefkuehl" },
-              { label: "Getränke",        href: "/sortiment/getraenke" },
-              { label: "Verpackungen",    href: "/sortiment/verpackungen" },
+              { label: "Angebote",      href: "/angebote" },
+              { label: "Frischwaren",   href: "/sortiment/frischwaren" },
+              { label: "Tiefkühlwaren", href: "/sortiment/tiefkuehl" },
+              { label: "Getränke",      href: "/sortiment/getraenke" },
+              { label: "Verpackungen",  href: "/sortiment/verpackungen" },
             ].map((l) => (
               <li key={l.label}>
                 <Link
                   href={l.href}
-                  className="font-[family-name:var(--font-inter)] text-white/55 text-sm hover:text-white hover:pl-1 transition-all duration-200"
+                  className="font-[family-name:var(--font-inter)] text-white/55 text-sm hover:text-white transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -106,20 +103,20 @@ export default function Footer() {
         </div>
 
         {/* Spalte 4: Unternehmen */}
-        <div>
-          <h4 className="font-[family-name:var(--font-oswald)] font-semibold text-base tracking-widest uppercase text-[#F5C800] mb-6 pb-3 border-b border-white/10">
+        <div className="flex flex-col items-center">
+          <h4 className="font-[family-name:var(--font-oswald)] font-semibold text-base tracking-widest uppercase text-[#F5C800] mb-6 pb-3 border-b border-white/10 w-full text-center">
             Unternehmen
           </h4>
-          <ul className="flex flex-col gap-3">
+          <ul className="flex flex-col items-center gap-3">
             {[
-              { label: "Über uns",        href: "/ueber-uns" },
-              { label: "Standort",        href: "/standort" },
-              { label: "Kontakt",         href: "/kontakt" },
+              { label: "Über uns", href: "/ueber-uns" },
+              { label: "Standort", href: "/standort" },
+              { label: "Kontakt",  href: "/kontakt" },
             ].map((l) => (
               <li key={l.label}>
                 <Link
                   href={l.href}
-                  className="font-[family-name:var(--font-inter)] text-white/55 text-sm hover:text-white hover:pl-1 transition-all duration-200"
+                  className="font-[family-name:var(--font-inter)] text-white/55 text-sm hover:text-white transition-colors"
                 >
                   {l.label}
                 </Link>
@@ -132,7 +129,7 @@ export default function Footer() {
 
       {/* Unterer Streifen */}
       <div className="border-t border-white/10">
-        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col md:flex-row items-center justify-between gap-3">
+        <div className="max-w-7xl mx-auto px-6 lg:px-10 py-5 flex flex-col md:flex-row items-center justify-center gap-4 text-center">
           <p className="font-[family-name:var(--font-inter)] text-white/35 text-xs">
             © {new Date().getFullYear()} AFRA Gastroservice · Laubenhof 23 · 45326 Essen
           </p>
