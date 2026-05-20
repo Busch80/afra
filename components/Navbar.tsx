@@ -41,25 +41,23 @@ export default function Navbar() {
         scrolled ? "bg-white shadow-md" : "bg-black/30 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center gap-8 h-16 lg:h-20">
+      {/* Desktop: Logo + Nav zentriert, zweizeilig */}
+      <div className="hidden lg:flex flex-col items-center py-4 px-10">
 
-        {/* Logo – direkt links, Teil der Navbar-Zeile */}
-        <Link href="/" className="flex-shrink-0 flex items-center">
+        {/* Logo – zentriert */}
+        <Link href="/" className="mb-3">
           <Image
             src="/afra-logo.png"
             alt="AFRA Gastroservice"
-            width={150}
-            height={60}
-            className="h-11 lg:h-13 w-auto object-contain"
+            width={160}
+            height={64}
+            className="h-14 w-auto object-contain"
             priority
           />
         </Link>
 
-        {/* Trennlinie zwischen Logo und Nav */}
-        <div className={`hidden lg:block h-7 w-px flex-shrink-0 ${scrolled ? "bg-gray-200" : "bg-white/30"}`} />
-
-        {/* Desktop Nav – direkt neben dem Logo */}
-        <nav className="hidden lg:flex items-center gap-7 flex-1">
+        {/* Nav-Links – zentriert */}
+        <nav className="flex items-center gap-8">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
@@ -72,9 +70,8 @@ export default function Navbar() {
                   {link.label}
                   <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
                 </button>
-
                 {dropdownOpen && (
-                  <div className="absolute top-full left-0 mt-1 w-48 bg-white shadow-xl border-t-2 border-[#CC0000] overflow-hidden">
+                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white shadow-xl border-t-2 border-[#CC0000] overflow-hidden">
                     {sortimentLinks.map((s) => (
                       <Link
                         key={s.label}
@@ -94,13 +91,21 @@ export default function Navbar() {
             )
           )}
         </nav>
+      </div>
 
-        {/* Hamburger – Mobile */}
-        <button
-          className="lg:hidden ml-auto"
-          onClick={() => setMobileOpen(!mobileOpen)}
-          aria-label="Menü"
-        >
+      {/* Mobile: Logo links, Hamburger rechts */}
+      <div className="lg:hidden flex items-center justify-between px-6 h-16">
+        <Link href="/">
+          <Image
+            src="/afra-logo.png"
+            alt="AFRA Gastroservice"
+            width={130}
+            height={52}
+            className="h-11 w-auto object-contain"
+            priority
+          />
+        </Link>
+        <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü">
           {mobileOpen
             ? <X className={`w-6 h-6 ${scrolled ? "text-[#1A1A1A]" : "text-white"}`} />
             : <Menu className={`w-6 h-6 ${scrolled ? "text-[#1A1A1A]" : "text-white"}`} />
@@ -111,7 +116,7 @@ export default function Navbar() {
       {/* Mobile Menu */}
       {mobileOpen && (
         <div className="lg:hidden bg-white border-t-2 border-[#CC0000]">
-          <nav className="flex flex-col px-6 py-4 gap-0">
+          <nav className="flex flex-col px-6 py-4">
             {navLinks.map((link) => (
               <div key={link.label}>
                 <Link
