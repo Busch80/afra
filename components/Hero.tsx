@@ -37,7 +37,7 @@ export default function Hero() {
 
         {/* Zwischentext */}
         <p
-          className="font-[family-name:var(--font-oswald)] text-white/70 text-lg tracking-widest uppercase"
+          className="font-[family-name:var(--font-oswald)] text-white/70 text-2xl lg:text-3xl tracking-widest uppercase"
           style={{ marginBottom: "2.5rem" }}
         >
           Direkt zu unserem Sortiment
