@@ -60,14 +60,14 @@ export default function Navbar() {
                     <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
                   </button>
 
-                  {/* Dropdown – grösser */}
+                  {/* Dropdown – transparent, mehr Abstand */}
                   {dropdownOpen && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-white shadow-2xl border-t-4 border-[#CC0000] overflow-hidden">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-56 bg-black/70 backdrop-blur-md border-t-4 border-[#F5C800] overflow-hidden">
                       {sortimentLinks.map((s) => (
                         <Link
                           key={s.label}
                           href={s.href}
-                          className="block px-6 py-4 font-[family-name:var(--font-oswald)] font-semibold text-base tracking-wide text-[#1A1A1A] hover:bg-[#CC0000] hover:text-white border-b border-gray-100 last:border-0 transition-colors duration-150"
+                          className="block px-6 py-5 font-[family-name:var(--font-oswald)] font-semibold text-base tracking-widest uppercase text-white hover:text-[#F5C800] hover:pl-8 border-b border-white/10 last:border-0 transition-all duration-200"
                         >
                           {s.label}
                         </Link>
