@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Image from "next/image";
-import { Menu, X, ChevronDown, Phone } from "lucide-react";
+import { Menu, X, ChevronDown } from "lucide-react";
 
 const sortimentItems = [
   { label: "Frischwaren", href: "/sortiment/frischwaren" },
@@ -36,22 +36,12 @@ export default function Navbar() {
         scrolled ? "bg-white shadow-md py-2" : "bg-transparent py-4"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        {/* Logo */}
-        <a href="/" className="flex-shrink-0">
-          <Image
-            src="/afra-logo.png"
-            alt="AFRA Gastroservice"
-            width={150}
-            height={60}
-            className="h-12 w-auto object-contain"
-            priority
-          />
-        </a>
+      {/* ── Desktop: 3-Spalten-Layout: Links | Logo-Mitte | Rechts ── */}
+      <div className="hidden lg:grid grid-cols-3 items-center max-w-7xl mx-auto px-8">
 
-        {/* Desktop Nav */}
-        <div className="hidden lg:flex items-center gap-8">
-          {navLinks.map((link) =>
+        {/* Links: Nav-Links (erste Hälfte) */}
+        <div className="flex items-center justify-start gap-8">
+          {navLinks.slice(0, 2).map((link) =>
             link.hasDropdown ? (
               <div
                 key={link.label}
@@ -61,16 +51,12 @@ export default function Navbar() {
               >
                 <button
                   className={`flex items-center gap-1 font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase transition-colors duration-300 ${
-                    scrolled
-                      ? "text-[#1A1A1A] hover:text-[#CC0000]"
-                      : "text-white hover:text-[#F5C800]"
+                    scrolled ? "text-[#1A1A1A] hover:text-[#CC0000]" : "text-white hover:text-[#F5C800]"
                   }`}
                 >
                   {link.label}
                   <ChevronDown
-                    className={`w-4 h-4 transition-transform duration-200 ${
-                      dropdownOpen ? "rotate-180" : ""
-                    }`}
+                    className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`}
                   />
                 </button>
                 {dropdownOpen && (
@@ -92,9 +78,7 @@ export default function Navbar() {
                 key={link.label}
                 href={link.href}
                 className={`font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase transition-colors duration-300 ${
-                  scrolled
-                    ? "text-[#1A1A1A] hover:text-[#CC0000]"
-                    : "text-white hover:text-[#F5C800]"
+                  scrolled ? "text-[#1A1A1A] hover:text-[#CC0000]" : "text-white hover:text-[#F5C800]"
                 }`}
               >
                 {link.label}
@@ -103,28 +87,55 @@ export default function Navbar() {
           )}
         </div>
 
-        {/* Right: Phone + CTA */}
-        <div className="hidden lg:flex items-center gap-4">
-          <a
-            href="tel:+491234567890"
-            className={`flex items-center gap-2 text-sm font-[family-name:var(--font-inter)] font-medium transition-colors ${
-              scrolled ? "text-[#1A1A1A]" : "text-white"
-            }`}
-          >
-            <Phone className="w-4 h-4" />
-            <span>+49 123 456 7890</span>
+        {/* Mitte: Logo */}
+        <div className="flex justify-center">
+          <a href="/">
+            <Image
+              src="/afra-logo.png"
+              alt="AFRA Gastroservice"
+              width={160}
+              height={64}
+              className="h-14 w-auto object-contain"
+              priority
+            />
           </a>
+        </div>
+
+        {/* Rechts: Nav-Links (zweite Hälfte) + CTA */}
+        <div className="flex items-center justify-end gap-8">
+          {navLinks.slice(2).map((link) => (
+            <a
+              key={link.label}
+              href={link.href}
+              className={`font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase transition-colors duration-300 ${
+                scrolled ? "text-[#1A1A1A] hover:text-[#CC0000]" : "text-white hover:text-[#F5C800]"
+              }`}
+            >
+              {link.label}
+            </a>
+          ))}
           <a
             href="/kontakt"
-            className="bg-[#CC0000] text-white font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase px-6 py-2.5 hover:bg-[#F5C800] hover:text-[#1A1A1A] transition-all duration-300"
+            className="bg-[#CC0000] text-white font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase px-5 py-2.5 hover:bg-[#F5C800] hover:text-[#1A1A1A] transition-all duration-300 whitespace-nowrap"
           >
             Jetzt Kunde werden
           </a>
         </div>
+      </div>
 
-        {/* Mobile Hamburger */}
+      {/* ── Mobile: Logo links, Hamburger rechts ── */}
+      <div className="lg:hidden flex items-center justify-between px-6">
+        <a href="/">
+          <Image
+            src="/afra-logo.png"
+            alt="AFRA Gastroservice"
+            width={130}
+            height={52}
+            className="h-11 w-auto object-contain"
+            priority
+          />
+        </a>
         <button
-          className="lg:hidden"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menü öffnen"
         >
