@@ -41,23 +41,23 @@ export default function Navbar() {
         scrolled ? "bg-white shadow-md" : "bg-black/30 backdrop-blur-sm"
       }`}
     >
-      {/* Desktop: Logo + Nav zentriert, zweizeilig */}
-      <div className="hidden lg:flex flex-col items-center py-4 px-10">
+      {/* Desktop: Logo links | Nav-Links zentriert (absolute) */}
+      <div className="hidden lg:flex items-center h-20 px-10 relative">
 
-        {/* Logo – zentriert */}
-        <Link href="/" className="mb-3">
+        {/* Logo – links */}
+        <Link href="/" className="flex-shrink-0 z-10">
           <Image
             src="/afra-logo.png"
             alt="AFRA Gastroservice"
-            width={160}
-            height={64}
-            className="h-14 w-auto object-contain"
+            width={150}
+            height={60}
+            className="h-13 w-auto object-contain"
             priority
           />
         </Link>
 
-        {/* Nav-Links – zentriert */}
-        <nav className="flex items-center gap-8">
+        {/* Nav-Links – absolut zentriert */}
+        <nav className="absolute left-0 right-0 flex justify-center items-center gap-8">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
@@ -93,7 +93,7 @@ export default function Navbar() {
         </nav>
       </div>
 
-      {/* Mobile: Logo links, Hamburger rechts */}
+      {/* Mobile */}
       <div className="lg:hidden flex items-center justify-between px-6 h-16">
         <Link href="/">
           <Image

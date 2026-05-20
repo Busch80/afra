@@ -11,22 +11,22 @@ export default function Hero() {
         style={{ backgroundImage: "url('/hero-gastronomie.jpg')" }}
       />
 
-      {/* Dunkler Gradient – unten stärker für Lesbarkeit */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/15" />
+      {/* Gradient – Mitte leicht abdunkeln für Lesbarkeit */}
+      <div className="absolute inset-0 bg-black/45" />
 
-      {/* Inhalt */}
-      <div className="relative z-10 h-full flex flex-col justify-end items-center text-center pb-16 lg:pb-24 px-6 lg:px-16 max-w-7xl mx-auto w-full">
+      {/* Inhalt – mittig im Bild */}
+      <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
 
         {/* Gelber Akzentbalken */}
-        <div className="w-16 h-1.5 bg-[#F5C800] mb-6 mx-auto" />
+        <div className="w-16 h-1.5 bg-[#F5C800] mb-6" />
 
         {/* H1 */}
-        <h1 className="font-[family-name:var(--font-oswald)] font-bold text-white text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none uppercase tracking-wide mb-4 max-w-4xl text-center">
+        <h1 className="font-[family-name:var(--font-oswald)] font-bold text-white text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none uppercase tracking-wide mb-5">
           Ihr Partner für<br />die Gastronomie.
         </h1>
 
         {/* Subline */}
-        <p className="font-[family-name:var(--font-inter)] text-white/80 text-lg lg:text-xl font-light italic mb-10 max-w-xl text-center">
+        <p className="font-[family-name:var(--font-inter)] text-white/80 text-lg lg:text-xl font-light italic mb-10">
           Unsere Produkte sind Ihre Speisekarte.
         </p>
 
