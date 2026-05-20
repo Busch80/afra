@@ -36,7 +36,7 @@ export default function Navbar() {
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <Image
-              src="/afra-logo.png"
+              src="/afra-logo-white.png"
               alt="AFRA Gastroservice"
               width={150}
               height={60}
@@ -89,7 +89,7 @@ export default function Navbar() {
       <div className="lg:hidden flex items-center justify-between px-6 h-16">
         <Link href="/">
           <Image
-            src="/afra-logo.png"
+            src="/afra-logo-white.png"
             alt="AFRA Gastroservice"
             width={130}
             height={52}
