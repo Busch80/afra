@@ -12,7 +12,7 @@ export default function Hero() {
       />
 
       {/* Dunkler Gradient – unten stärker für Lesbarkeit */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/20" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/15" />
 
       {/* Inhalt */}
       <div className="relative z-10 h-full flex flex-col justify-end pb-16 lg:pb-24 px-6 lg:px-16 max-w-7xl mx-auto w-full">
@@ -20,14 +20,14 @@ export default function Hero() {
         {/* Gelber Akzentbalken */}
         <div className="w-16 h-1.5 bg-[#F5C800] mb-6" />
 
-        {/* Headline */}
+        {/* H1 */}
         <h1 className="font-[family-name:var(--font-oswald)] font-bold text-white text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none uppercase tracking-wide mb-4 max-w-4xl">
-          Ihr Partner<br />für die Gastronomie.
+          Ihr Partner für<br />die Gastronomie.
         </h1>
 
         {/* Subline */}
-        <p className="font-[family-name:var(--font-inter)] text-white/75 text-base lg:text-lg font-light tracking-[0.2em] uppercase mb-10">
-          Frisch.&nbsp;&nbsp;&nbsp;Schnell.&nbsp;&nbsp;&nbsp;Zuverlässig.
+        <p className="font-[family-name:var(--font-inter)] text-white/80 text-lg lg:text-xl font-light italic mb-10 max-w-xl">
+          Unsere Produkte sind Ihre Speisekarte.
         </p>
 
         {/* CTAs */}
@@ -49,7 +49,7 @@ export default function Hero() {
       </div>
 
       {/* Scroll-Indikator */}
-      <div className="absolute bottom-8 right-8 lg:right-16 z-10 flex flex-col items-center gap-2 opacity-60">
+      <div className="absolute bottom-8 right-8 lg:right-16 z-10 flex flex-col items-center gap-2 opacity-50">
         <span className="font-[family-name:var(--font-inter)] text-white text-xs tracking-widest uppercase">Scroll</span>
         <div className="w-px h-12 bg-white/60 animate-pulse" />
       </div>

@@ -18,7 +18,6 @@ const navLinks = [
   { label: "Standort",        href: "/standort" },
   { label: "Über uns",        href: "/ueber-uns" },
   { label: "Kontakt",         href: "/kontakt" },
-  { label: "Impressum",       href: "/impressum" },
 ];
 
 export default function Navbar() {
@@ -42,22 +41,25 @@ export default function Navbar() {
         scrolled ? "bg-white shadow-md" : "bg-black/30 backdrop-blur-sm"
       }`}
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center justify-between h-16 lg:h-20">
+      <div className="max-w-7xl mx-auto px-6 lg:px-10 flex items-center gap-8 h-16 lg:h-20">
 
-        {/* Logo – links */}
-        <Link href="/" className="flex-shrink-0">
+        {/* Logo – direkt links, Teil der Navbar-Zeile */}
+        <Link href="/" className="flex-shrink-0 flex items-center">
           <Image
             src="/afra-logo.png"
             alt="AFRA Gastroservice"
             width={150}
             height={60}
-            className="h-12 lg:h-14 w-auto object-contain"
+            className="h-11 lg:h-13 w-auto object-contain"
             priority
           />
         </Link>
 
-        {/* Desktop Nav */}
-        <nav className="hidden lg:flex items-center gap-7">
+        {/* Trennlinie zwischen Logo und Nav */}
+        <div className={`hidden lg:block h-7 w-px flex-shrink-0 ${scrolled ? "bg-gray-200" : "bg-white/30"}`} />
+
+        {/* Desktop Nav – direkt neben dem Logo */}
+        <nav className="hidden lg:flex items-center gap-7 flex-1">
           {navLinks.map((link) =>
             link.dropdown ? (
               <div
@@ -95,7 +97,7 @@ export default function Navbar() {
 
         {/* Hamburger – Mobile */}
         <button
-          className="lg:hidden"
+          className="lg:hidden ml-auto"
           onClick={() => setMobileOpen(!mobileOpen)}
           aria-label="Menü"
         >
