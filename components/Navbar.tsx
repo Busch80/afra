@@ -34,7 +34,7 @@ export default function Navbar() {
   // Beim Scrollen: weisser Hintergrund mit Schatten
   // Oben (transparent): kein Hintergrund, weisse Schrift
   const headerBg = scrolled
-    ? "bg-white/95 backdrop-blur-md shadow-lg"
+    ? "bg-white shadow-lg"
     : "bg-transparent";
 
   const linkClass = `font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase transition-colors duration-200 ${
