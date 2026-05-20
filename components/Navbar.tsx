@@ -26,25 +26,26 @@ export default function Navbar() {
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
   useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 50);
+    const handler = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", handler, { passive: true });
     return () => window.removeEventListener("scroll", handler);
   }, []);
+
+  // Beim Scrollen: weisser Hintergrund mit Schatten
+  // Oben (transparent): kein Hintergrund, weisse Schrift
+  const headerBg = scrolled
+    ? "bg-white/95 backdrop-blur-md shadow-lg"
+    : "bg-transparent";
 
   const linkClass = `font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase transition-colors duration-200 ${
     scrolled ? "text-[#1A1A1A] hover:text-[#CC0000]" : "text-white hover:text-[#F5C800]"
   }`;
 
   return (
-    <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled ? "bg-white shadow-md" : "bg-black/30 backdrop-blur-sm"
-      }`}
-    >
-      {/* Desktop: Logo + Nav als zentrierte Einheit in einer Zeile */}
-      <div className="hidden lg:flex items-center justify-center h-20 px-10">
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${headerBg}`}>
 
-        {/* Zentrierter Container: Logo links | Nav-Links rechts davon */}
+      {/* Desktop */}
+      <div className="hidden lg:flex items-center justify-center h-20 px-10">
         <div className="flex items-center gap-10">
 
           {/* Logo */}
@@ -69,17 +70,19 @@ export default function Navbar() {
                   onMouseEnter={() => setDropdownOpen(true)}
                   onMouseLeave={() => setDropdownOpen(false)}
                 >
-                  <button className={`${linkClass} flex items-center gap-1`}>
+                  <button className={`${linkClass} flex items-center gap-1.5`}>
                     {link.label}
-                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                    <ChevronDown className={`w-4 h-4 transition-transform duration-200 ${dropdownOpen ? "rotate-180" : ""}`} />
                   </button>
+
+                  {/* Dropdown – grösser */}
                   {dropdownOpen && (
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white shadow-xl border-t-2 border-[#CC0000] overflow-hidden">
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-3 w-64 bg-white shadow-2xl border-t-4 border-[#CC0000] overflow-hidden">
                       {sortimentLinks.map((s) => (
                         <Link
                           key={s.label}
                           href={s.href}
-                          className="block px-5 py-3 text-sm text-[#1A1A1A] hover:bg-gray-50 hover:text-[#CC0000] font-[family-name:var(--font-inter)] font-medium transition-colors"
+                          className="block px-6 py-4 font-[family-name:var(--font-oswald)] font-semibold text-base tracking-wide text-[#1A1A1A] hover:bg-[#CC0000] hover:text-white border-b border-gray-100 last:border-0 transition-colors duration-150"
                         >
                           {s.label}
                         </Link>
@@ -97,7 +100,7 @@ export default function Navbar() {
         </div>
       </div>
 
-      {/* Mobile */}
+      {/* Mobile Header */}
       <div className="lg:hidden flex items-center justify-between px-6 h-16">
         <Link href="/">
           <Image
@@ -119,25 +122,25 @@ export default function Navbar() {
 
       {/* Mobile Menu */}
       {mobileOpen && (
-        <div className="lg:hidden bg-white border-t-2 border-[#CC0000]">
+        <div className="lg:hidden bg-white border-t-4 border-[#CC0000]">
           <nav className="flex flex-col px-6 py-4">
             {navLinks.map((link) => (
               <div key={link.label}>
                 <Link
                   href={link.href}
                   onClick={() => setMobileOpen(false)}
-                  className="block py-3 font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase text-[#1A1A1A] hover:text-[#CC0000] border-b border-gray-100 transition-colors"
+                  className="block py-4 font-[family-name:var(--font-oswald)] font-semibold text-base tracking-widest uppercase text-[#1A1A1A] hover:text-[#CC0000] border-b border-gray-100 transition-colors"
                 >
                   {link.label}
                 </Link>
                 {link.dropdown && (
-                  <div className="pl-4 py-1 border-b border-gray-100">
+                  <div className="pl-4 py-2 border-b border-gray-100">
                     {sortimentLinks.map((s) => (
                       <Link
                         key={s.label}
                         href={s.href}
                         onClick={() => setMobileOpen(false)}
-                        className="block py-2 text-sm text-gray-500 hover:text-[#CC0000] font-[family-name:var(--font-inter)] transition-colors"
+                        className="block py-3 text-base text-gray-500 hover:text-[#CC0000] font-[family-name:var(--font-oswald)] font-medium tracking-wide transition-colors"
                       >
                         → {s.label}
                       </Link>

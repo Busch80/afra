@@ -12,35 +12,88 @@ export default function NewsletterBanner() {
   };
 
   return (
-    <section className="bg-[#1A1A1A] border-t border-white/10">
-      <div className="max-w-3xl mx-auto px-6 py-16 flex flex-col items-center text-center gap-6">
+    <section className="bg-[#1A1A1A] border-t border-white/10" style={{ paddingBottom: "40px" }}>
+      <div
+        style={{
+          maxWidth: "600px",
+          margin: "0 auto",
+          padding: "4rem 1.5rem 0",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
+          gap: "1.5rem",
+        }}
+      >
+        <div style={{ width: "48px", height: "4px", background: "#F5C800" }} />
 
-        <div className="w-12 h-1 bg-[#F5C800]" />
-
-        <h3 className="font-[family-name:var(--font-oswald)] font-bold text-white text-3xl lg:text-4xl uppercase tracking-wide">
+        <h3
+          style={{
+            fontFamily: "var(--font-oswald), sans-serif",
+            fontWeight: 700,
+            color: "#ffffff",
+            fontSize: "clamp(1.5rem, 3vw, 2.25rem)",
+            textTransform: "uppercase",
+            letterSpacing: "0.05em",
+            margin: 0,
+          }}
+        >
           Newsletter – Beste Angebote &amp; Rabatte
         </h3>
-        <p className="font-[family-name:var(--font-inter)] text-white/60 text-base">
+
+        <p
+          style={{
+            fontFamily: "var(--font-inter), sans-serif",
+            color: "rgba(255,255,255,0.6)",
+            fontSize: "1rem",
+            margin: 0,
+          }}
+        >
           Immer als Erster informiert sein. Jetzt kostenlos anmelden.
         </p>
 
         {sent ? (
-          <p className="font-[family-name:var(--font-oswald)] text-[#F5C800] text-xl tracking-widest uppercase">
+          <p style={{ fontFamily: "var(--font-oswald), sans-serif", color: "#F5C800", fontSize: "1.25rem", textTransform: "uppercase", letterSpacing: "0.15em" }}>
             ✓ Erfolgreich angemeldet!
           </p>
         ) : (
-          <form onSubmit={handleSubmit} className="flex w-full max-w-lg gap-0 mt-2">
+          <form
+            onSubmit={handleSubmit}
+            style={{ display: "flex", width: "100%", maxWidth: "480px" }}
+          >
             <input
               type="email"
               required
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               placeholder="Deine E-Mail-Adresse"
-              className="flex-1 bg-white/10 border-2 border-white/20 border-r-0 text-white placeholder-white/40 font-[family-name:var(--font-inter)] text-sm px-5 py-4 focus:outline-none focus:border-[#F5C800] transition-colors"
+              style={{
+                flex: 1,
+                background: "rgba(255,255,255,0.08)",
+                border: "2px solid rgba(255,255,255,0.2)",
+                borderRight: "none",
+                color: "#ffffff",
+                fontFamily: "var(--font-inter), sans-serif",
+                fontSize: "0.875rem",
+                padding: "0.875rem 1.25rem",
+                outline: "none",
+              }}
             />
             <button
               type="submit"
-              className="bg-[#F5C800] text-[#1A1A1A] font-[family-name:var(--font-oswald)] font-bold text-sm tracking-widest uppercase px-8 py-4 hover:bg-white transition-all duration-300 whitespace-nowrap"
+              style={{
+                background: "#F5C800",
+                color: "#1A1A1A",
+                fontFamily: "var(--font-oswald), sans-serif",
+                fontWeight: 700,
+                fontSize: "0.875rem",
+                letterSpacing: "0.15em",
+                textTransform: "uppercase",
+                padding: "0.875rem 1.75rem",
+                border: "none",
+                cursor: "pointer",
+                whiteSpace: "nowrap",
+              }}
             >
               Anmelden
             </button>
