@@ -11,7 +11,7 @@ export default function Hero() {
       />
 
       {/* Abdunklung */}
-      <div className="absolute inset-0 bg-black/45" />
+      <div className="absolute inset-0 bg-black/50" />
 
       {/* Inhalt – mittig */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
@@ -20,22 +20,27 @@ export default function Hero() {
         <div className="w-16 h-1.5 bg-[#F5C800] mb-6" />
 
         {/* H1 */}
-        <h1 className="font-[family-name:var(--font-oswald)] font-bold text-white text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none uppercase tracking-wide mb-4">
+        <h1 className="font-[family-name:var(--font-oswald)] font-bold text-white text-5xl md:text-6xl lg:text-7xl xl:text-8xl leading-none uppercase tracking-wide mb-6">
           Ihr Partner für<br />die Gastronomie.
         </h1>
 
-        {/* Subline */}
-        <p className="font-[family-name:var(--font-inter)] text-white/80 text-lg lg:text-xl font-light italic mb-10">
+        {/* Subline – grösser */}
+        <p className="font-[family-name:var(--font-inter)] text-white/90 text-2xl lg:text-3xl font-light italic mb-4">
           Unsere Produkte sind Ihre Speisekarte.
         </p>
 
-        {/* Buttons: Angebote + 4 Sortiments-Unterseiten */}
-        <div className="flex flex-wrap gap-3 justify-center">
+        {/* Zwischentext */}
+        <p className="font-[family-name:var(--font-oswald)] text-white/70 text-base tracking-widest uppercase mb-10">
+          Direkt zu unserem Sortiment
+        </p>
 
-          {/* Angebote – hervorgehoben in Rot */}
+        {/* Buttons mit mehr Abstand */}
+        <div className="flex flex-wrap gap-5 justify-center">
+
+          {/* Angebote – Rot */}
           <Link
             href="/angebote"
-            className="bg-[#CC0000] text-white font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase px-7 py-3.5 hover:bg-[#F5C800] hover:text-[#1A1A1A] transition-all duration-300"
+            className="bg-[#CC0000] text-white font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase px-8 py-4 hover:bg-[#F5C800] hover:text-[#1A1A1A] transition-all duration-300"
           >
             Angebote
           </Link>
@@ -50,7 +55,7 @@ export default function Hero() {
             <Link
               key={btn.label}
               href={btn.href}
-              className="border-2 border-white text-white font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase px-7 py-3.5 hover:bg-white hover:text-[#1A1A1A] transition-all duration-300"
+              className="border-2 border-white text-white font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase px-8 py-4 hover:bg-white hover:text-[#1A1A1A] transition-all duration-300"
             >
               {btn.label}
             </Link>
