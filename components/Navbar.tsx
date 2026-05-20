@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, ChevronDown } from "lucide-react";
@@ -21,28 +21,13 @@ const navLinks = [
 ];
 
 export default function Navbar() {
-  const [scrolled,     setScrolled]     = useState(false);
   const [mobileOpen,   setMobileOpen]   = useState(false);
   const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  useEffect(() => {
-    const handler = () => setScrolled(window.scrollY > 60);
-    window.addEventListener("scroll", handler, { passive: true });
-    return () => window.removeEventListener("scroll", handler);
-  }, []);
-
-  // Beim Scrollen: weisser Hintergrund mit Schatten
-  // Oben (transparent): kein Hintergrund, weisse Schrift
-  const headerBg = scrolled
-    ? "bg-white shadow-lg"
-    : "bg-transparent";
-
-  const linkClass = `font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase transition-colors duration-200 ${
-    scrolled ? "text-[#1A1A1A] hover:text-[#CC0000]" : "text-white hover:text-[#F5C800]"
-  }`;
+  const linkClass = "font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase transition-colors duration-200 text-white hover:text-[#F5C800]";
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-400 ${headerBg}`}>
+    <header className="fixed top-0 left-0 right-0 z-50 bg-transparent">
 
       {/* Desktop */}
       <div className="hidden lg:flex items-center justify-center h-20 px-10">
@@ -114,8 +99,8 @@ export default function Navbar() {
         </Link>
         <button onClick={() => setMobileOpen(!mobileOpen)} aria-label="Menü">
           {mobileOpen
-            ? <X className={`w-6 h-6 ${scrolled ? "text-[#1A1A1A]" : "text-white"}`} />
-            : <Menu className={`w-6 h-6 ${scrolled ? "text-[#1A1A1A]" : "text-white"}`} />
+            ? <X className="w-6 h-6 text-white" />
+            : <Menu className="w-6 h-6 text-white" />
           }
         </button>
       </div>
