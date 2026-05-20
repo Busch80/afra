@@ -59,9 +59,6 @@ export default function Navbar() {
             />
           </Link>
 
-          {/* Trennlinie */}
-          <div className={`h-7 w-px flex-shrink-0 ${scrolled ? "bg-gray-200" : "bg-white/30"}`} />
-
           {/* Nav-Links */}
           <nav className="flex items-center gap-8">
             {navLinks.map((link) =>
