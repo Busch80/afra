@@ -41,56 +41,63 @@ export default function Navbar() {
         scrolled ? "bg-white shadow-md" : "bg-black/30 backdrop-blur-sm"
       }`}
     >
-      {/* Desktop: Logo links | Nav-Links zentriert (absolute) */}
-      <div className="hidden lg:flex items-center h-20 px-10 relative">
+      {/* Desktop: Logo + Nav als zentrierte Einheit in einer Zeile */}
+      <div className="hidden lg:flex items-center justify-center h-20 px-10">
 
-        {/* Logo – links */}
-        <Link href="/" className="flex-shrink-0 z-10">
-          <Image
-            src="/afra-logo.png"
-            alt="AFRA Gastroservice"
-            width={150}
-            height={60}
-            className="h-13 w-auto object-contain"
-            priority
-          />
-        </Link>
+        {/* Zentrierter Container: Logo links | Nav-Links rechts davon */}
+        <div className="flex items-center gap-10">
 
-        {/* Nav-Links – absolut zentriert */}
-        <nav className="absolute left-0 right-0 flex justify-center items-center gap-8">
-          {navLinks.map((link) =>
-            link.dropdown ? (
-              <div
-                key={link.label}
-                className="relative"
-                onMouseEnter={() => setDropdownOpen(true)}
-                onMouseLeave={() => setDropdownOpen(false)}
-              >
-                <button className={`${linkClass} flex items-center gap-1`}>
+          {/* Logo */}
+          <Link href="/" className="flex-shrink-0">
+            <Image
+              src="/afra-logo.png"
+              alt="AFRA Gastroservice"
+              width={150}
+              height={60}
+              className="h-12 w-auto object-contain"
+              priority
+            />
+          </Link>
+
+          {/* Trennlinie */}
+          <div className={`h-7 w-px flex-shrink-0 ${scrolled ? "bg-gray-200" : "bg-white/30"}`} />
+
+          {/* Nav-Links */}
+          <nav className="flex items-center gap-8">
+            {navLinks.map((link) =>
+              link.dropdown ? (
+                <div
+                  key={link.label}
+                  className="relative"
+                  onMouseEnter={() => setDropdownOpen(true)}
+                  onMouseLeave={() => setDropdownOpen(false)}
+                >
+                  <button className={`${linkClass} flex items-center gap-1`}>
+                    {link.label}
+                    <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {dropdownOpen && (
+                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white shadow-xl border-t-2 border-[#CC0000] overflow-hidden">
+                      {sortimentLinks.map((s) => (
+                        <Link
+                          key={s.label}
+                          href={s.href}
+                          className="block px-5 py-3 text-sm text-[#1A1A1A] hover:bg-gray-50 hover:text-[#CC0000] font-[family-name:var(--font-inter)] font-medium transition-colors"
+                        >
+                          {s.label}
+                        </Link>
+                      ))}
+                    </div>
+                  )}
+                </div>
+              ) : (
+                <Link key={link.label} href={link.href} className={linkClass}>
                   {link.label}
-                  <ChevronDown className={`w-3.5 h-3.5 transition-transform ${dropdownOpen ? "rotate-180" : ""}`} />
-                </button>
-                {dropdownOpen && (
-                  <div className="absolute top-full left-1/2 -translate-x-1/2 mt-2 w-48 bg-white shadow-xl border-t-2 border-[#CC0000] overflow-hidden">
-                    {sortimentLinks.map((s) => (
-                      <Link
-                        key={s.label}
-                        href={s.href}
-                        className="block px-5 py-3 text-sm text-[#1A1A1A] hover:bg-gray-50 hover:text-[#CC0000] font-[family-name:var(--font-inter)] font-medium transition-colors"
-                      >
-                        {s.label}
-                      </Link>
-                    ))}
-                  </div>
-                )}
-              </div>
-            ) : (
-              <Link key={link.label} href={link.href} className={linkClass}>
-                {link.label}
-              </Link>
-            )
-          )}
-        </nav>
+                </Link>
+              )
+            )}
+          </nav>
+        </div>
       </div>
 
       {/* Mobile */}
