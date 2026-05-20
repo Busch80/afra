@@ -2,40 +2,50 @@ import { ArrowRight } from "lucide-react";
 
 export default function UeberUnsTeaser() {
   return (
-    <section id="ueber-uns" className="py-20 md:py-24 bg-[#F9F6F0]">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          <div
-            className="h-[400px] lg:h-[500px] rounded-xl"
-            style={{
-              background:
-                "linear-gradient(135deg, #1A3A5C 0%, #2E6B9E 50%, #4A8C3F 100%)",
-            }}
-          />
-          <div>
-            <h2 className="font-[family-name:var(--font-montserrat)] font-bold text-3xl md:text-[38px] text-[#1C1C1C] mb-6 leading-tight">
-              AGRA Gastroservice –
-              <br />
-              Ihr Großhandel seit über 20 Jahren
-            </h2>
-            <p className="font-[family-name:var(--font-inter)] text-gray-600 text-base leading-relaxed mb-4">
-              Seit mehr als zwei Jahrzehnten versorgen wir Gastronomiebetriebe in
-              der gesamten Region mit frischen Lebensmitteln, Getränken und
-              Verpackungsmaterialien. Unsere Kunden schätzen uns für
-              Zuverlässigkeit, Qualität und faire Preise.
-            </p>
-            <p className="font-[family-name:var(--font-inter)] text-gray-600 text-base leading-relaxed mb-8">
-              Von der Tageskarte über Tiefkühlkost bis hin zum Getränkeservice –
-              bei uns bekommen Sie alles aus einer Hand. Persönliche Beratung
-              inklusive.
-            </p>
-            <a
-              href="#ueber-uns"
-              className="inline-flex items-center gap-2 bg-[#C0392B] text-white font-[family-name:var(--font-montserrat)] font-semibold text-sm px-8 py-3.5 rounded-xl hover:bg-[#A93226] transition-colors duration-300"
-            >
-              Mehr über uns <ArrowRight className="w-4 h-4" />
-            </a>
-          </div>
+    <section
+      id="ueber-uns"
+      className="relative w-full min-h-[480px] lg:min-h-[560px] flex items-center justify-center overflow-hidden"
+    >
+      {/* Hintergrundbild: Handschlag / Partnerschaft */}
+      <div
+        className="absolute inset-0 bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1521791136064-7986c2920216?w=1600&q=80')",
+        }}
+      />
+      {/* Dunkler Overlay */}
+      <div className="absolute inset-0 bg-[#1A1A1A]/72" />
+
+      {/* Gelber Akzentbalken oben */}
+      <div className="absolute top-0 left-0 right-0 h-1 bg-[#F5C800]" />
+
+      {/* Content */}
+      <div className="relative z-10 text-center px-6 max-w-3xl mx-auto">
+        <p className="font-[family-name:var(--font-inter)] text-[#F5C800] text-xs tracking-widest uppercase mb-4">
+          Über uns
+        </p>
+        <h2 className="font-[family-name:var(--font-oswald)] font-bold text-white text-3xl md:text-4xl lg:text-5xl uppercase tracking-wide leading-tight mb-6">
+          Bereit für eine starke<br />Partnerschaft?
+        </h2>
+        <p className="font-[family-name:var(--font-inter)] text-white/75 text-base lg:text-lg leading-relaxed mb-10 max-w-xl mx-auto">
+          Seit über 20 Jahren versorgen wir Gastronomiebetriebe in der Region
+          mit frischen Produkten, fairen Preisen und persönlicher Beratung –
+          alles aus einer Hand.
+        </p>
+        <div className="flex flex-col sm:flex-row gap-4 justify-center">
+          <a
+            href="/kontakt"
+            className="inline-flex items-center justify-center gap-2 bg-[#CC0000] text-white font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase px-8 py-3.5 hover:bg-[#F5C800] hover:text-[#1A1A1A] transition-all duration-300"
+          >
+            Jetzt Kontakt aufnehmen <ArrowRight className="w-4 h-4" />
+          </a>
+          <a
+            href="/ueber-uns"
+            className="inline-flex items-center justify-center gap-2 border-2 border-white text-white font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase px-8 py-3 hover:bg-white hover:text-[#1A1A1A] transition-all duration-300"
+          >
+            Mehr über uns
+          </a>
         </div>
       </div>
     </section>

@@ -1,54 +1,101 @@
-"use client";
-
 import { ArrowRight } from "lucide-react";
 
-const categories = [
+const kategorien = [
   {
-    name: "Frischwaren",
-    gradient: "linear-gradient(135deg, #2C5F2D 0%, #4A8C3F 100%)",
+    label: "Frischwaren",
+    sub: "Täglich frisch geliefert",
+    href: "/sortiment/frischwaren",
+    img: "https://images.unsplash.com/photo-1542838132-92c53300491e?w=800&q=80",
   },
   {
-    name: "Tiefkühlwaren",
-    gradient: "linear-gradient(135deg, #1A3A5C 0%, #2E6B9E 100%)",
+    label: "Tiefkühlwaren",
+    sub: "Lückenlose Kühlkette",
+    href: "/sortiment/tiefkuehl",
+    img: "https://images.unsplash.com/photo-1563805042-7684c019e1cb?w=800&q=80",
   },
   {
-    name: "Getränke",
-    gradient: "linear-gradient(135deg, #C0392B 0%, #E74C3C 100%)",
+    label: "Getränke",
+    sub: "Vom Wasser bis zum Wein",
+    href: "/sortiment/getraenke",
+    img: "https://images.unsplash.com/photo-1551024709-8f23befc6f87?w=800&q=80",
   },
   {
-    name: "Verpackungen",
-    gradient: "linear-gradient(135deg, #8E7700 0%, #E8B800 100%)",
+    label: "Verpackungen",
+    sub: "Nachhaltig & praktisch",
+    href: "/sortiment/verpackungen",
+    img: "https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?w=800&q=80",
   },
 ];
 
 export default function SortimentVorschau() {
   return (
-    <section id="sortiment" className="py-20 md:py-24 bg-[#F9F6F0]">
+    <section id="sortiment" className="py-16 bg-white">
+      {/* Section Header */}
+      <div className="max-w-7xl mx-auto px-6 mb-10 flex items-end justify-between">
+        <div>
+          <div className="w-10 h-1 bg-[#CC0000] mb-4" />
+          <h2 className="font-[family-name:var(--font-oswald)] font-bold text-[#1A1A1A] text-3xl lg:text-4xl uppercase tracking-wide">
+            Unser Sortiment
+          </h2>
+          <p className="font-[family-name:var(--font-inter)] text-gray-500 text-base mt-2">
+            Alles für Ihre Küche – aus einer Hand.
+          </p>
+        </div>
+        <a
+          href="/sortiment"
+          className="hidden md:inline-flex items-center gap-2 font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase text-[#CC0000] hover:text-[#1A1A1A] transition-colors"
+        >
+          Alle Kategorien
+          <ArrowRight className="w-4 h-4" />
+        </a>
+      </div>
+
+      {/* Slider */}
       <div className="max-w-7xl mx-auto px-6">
-        <h2 className="font-[family-name:var(--font-montserrat)] font-bold text-3xl md:text-[38px] text-[#1C1C1C] text-center mb-14">
-          Unser Sortiment
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {categories.map((cat) => (
+        <div className="flex gap-5 overflow-x-auto hide-scrollbar pb-4">
+          {kategorien.map((kat) => (
             <a
-              key={cat.name}
-              href="#sortiment"
-              className="group relative h-[250px] rounded-xl overflow-hidden block"
+              key={kat.label}
+              href={kat.href}
+              className="group relative flex-shrink-0 w-[280px] lg:w-[320px] h-[420px] overflow-hidden block"
             >
-              <div
-                className="absolute inset-0 transition-transform duration-500 group-hover:scale-110"
-                style={{ background: cat.gradient }}
+              {/* Bild */}
+              <img
+                src={kat.img}
+                alt={kat.label}
+                className="absolute inset-0 w-full h-full object-cover transition-transform duration-500 group-hover:scale-106"
               />
-              <div className="absolute inset-0 bg-[#C0392B]/0 group-hover:bg-[#C0392B]/40 transition-all duration-500" />
-              <div className="absolute bottom-0 left-0 right-0 p-6 flex items-end justify-between">
-                <span className="font-[family-name:var(--font-montserrat)] font-bold text-white text-lg">
-                  {cat.name}
+              {/* Gradient */}
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
+
+              {/* Gelber Akzent-Streifen links */}
+              <div className="absolute left-0 top-0 bottom-0 w-1 bg-[#F5C800] opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+              {/* Text */}
+              <div className="absolute bottom-0 left-0 right-0 p-6">
+                <p className="font-[family-name:var(--font-inter)] text-white/60 text-xs tracking-widest uppercase mb-1">
+                  {kat.sub}
+                </p>
+                <h3 className="font-[family-name:var(--font-oswald)] font-bold text-white text-2xl uppercase tracking-wide mb-3">
+                  {kat.label}
+                </h3>
+                <span className="inline-flex items-center gap-1.5 text-[#F5C800] font-[family-name:var(--font-oswald)] text-sm font-semibold uppercase tracking-widest group-hover:gap-3 transition-all duration-300">
+                  Entdecken <ArrowRight className="w-4 h-4" />
                 </span>
-                <ArrowRight className="w-5 h-5 text-white opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               </div>
             </a>
           ))}
         </div>
+      </div>
+
+      {/* Mobile Link */}
+      <div className="md:hidden text-center mt-6">
+        <a
+          href="/sortiment"
+          className="inline-flex items-center gap-2 font-[family-name:var(--font-oswald)] font-semibold text-sm tracking-widest uppercase text-[#CC0000]"
+        >
+          Alle Kategorien <ArrowRight className="w-4 h-4" />
+        </a>
       </div>
     </section>
   );

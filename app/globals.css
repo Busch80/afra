@@ -1,27 +1,12 @@
 @import "tailwindcss";
 
 :root {
-  --color-primary: #E8B800;
-  --color-secondary: #C0392B;
-  --color-accent: #1A3A5C;
-  --color-background: #F9F6F0;
-  --color-text-dark: #1C1C1C;
-  --color-text-light: #FFFFFF;
-  --color-gray-accent: #F2F2F2;
-  --font-heading: var(--font-montserrat);
-  --font-body: var(--font-inter);
-}
-
-@theme inline {
-  --color-primary: var(--color-primary);
-  --color-secondary: var(--color-secondary);
-  --color-accent: var(--color-accent);
-  --color-bg: var(--color-background);
-  --color-text-dark: var(--color-text-dark);
-  --color-text-light: var(--color-text-light);
-  --color-gray-accent: var(--color-gray-accent);
-  --font-heading: var(--font-montserrat);
-  --font-body: var(--font-inter);
+  --afra-red: #CC0000;
+  --afra-red-dark: #A80000;
+  --afra-blue: #0033CC;
+  --afra-yellow: #F5C800;
+  --afra-anthrazit: #1A1A1A;
+  --afra-hellgrau: #F5F5F5;
 }
 
 * {
@@ -35,11 +20,40 @@ html {
 }
 
 body {
-  background: var(--color-background);
-  color: var(--color-text-dark);
-  font-family: var(--font-body), sans-serif;
+  background: #ffffff;
+  color: #1A1A1A;
+  font-family: var(--font-inter), sans-serif;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: var(--font-heading), sans-serif;
+  font-family: var(--font-oswald), sans-serif;
+}
+
+/* Hide scrollbar for slider */
+.hide-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+.hide-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Image zoom on hover */
+.img-zoom {
+  overflow: hidden;
+}
+.img-zoom img {
+  transition: transform 0.5s ease;
+}
+.img-zoom:hover img {
+  transform: scale(1.06);
+}
+
+/* Fade-in-up animation */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(28px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.fade-in-up {
+  animation: fadeInUp 0.7s ease forwards;
 }
