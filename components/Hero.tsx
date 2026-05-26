@@ -16,9 +16,6 @@ export default function Hero() {
       {/* Inhalt – mittig */}
       <div className="relative z-10 h-full flex flex-col items-center justify-center text-center px-6">
 
-        {/* Gelber Akzentbalken */}
-        <div className="w-16 h-1.5 bg-[#F5C800]" style={{ marginBottom: "2rem" }} />
-
         {/* H1 */}
         <h1
           className="font-[family-name:var(--font-oswald)] font-bold text-white text-4xl md:text-5xl lg:text-6xl leading-tight uppercase tracking-wide"
